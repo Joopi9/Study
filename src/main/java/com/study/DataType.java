@@ -1,12 +1,28 @@
 package com.study;
 
-public class DataType {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-	static int a = 1;
-	static void test(String... str) {
-		a = 2;
-	}
+import com.google.gson.Gson;
+
+class Test{
+	
+}
+public class DataType extends Test{
+
 	public static void main(String[] args) {
-		System.out.println(a);
+		List<Map<String,String>> list = new ArrayList<>();
+		Map<String,String> map = new HashMap<>();
+		list.add(map);
+		map.put("name", "park");
+		map.put("age","33");
+		System.out.println(list);
+		Gson g = new Gson();
+		String json = g.toJson(list);
+		System.out.println(json);
+		List<Map<String,String>> list2 = g.fromJson(json, List.class); 
+		System.out.println(list2.get(0).get("name"));
 	}
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	function printSome(num, time){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				document.write(num + '번째 실행!!<br>')
+				resolve();
+			},time);
+		})
+	}
+	
+	var a = {
+			name : 'park'
+	}
+	
+	printSome(1,3000)
+	.then(function(){
+		return printSome(2,2000)
+	})
+	.then(function(){
+		return printSome(3,1000)
+	})
+</script>
+</body>
+</html>

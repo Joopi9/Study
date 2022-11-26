@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function getData(conf){
+			var url = conf.url;
+			var method = conf.method?conf.method:'GET';
+			var xhr = new XMLHttpRequest();
+			xhr.open(method,url);
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState===4){
+					if(xhr.status===200){
+						if(conf.callback){
+							conf.callback(xhr.responseText);
+						}
+					}else{
+						if(conf.fail){
+							conf.fail(xhr.responseText);
+						}
+					}
+				} 
+			}
+			xhr.send();
+		}
+
+		getData({
+			url:'/ajax?cnt=3',
+			callback : function(f){
+				console.log(f);
+				getData({
+					url:'/ajax?cnt=2',
+					callback : function(f){
+						console.log(f);
+						getData({
+							url:'/ajax?cnt=1',
+							callback : function(f){
+								console.log(f);
+							}
+						});
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
