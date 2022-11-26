@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+	/* function test(){
+		this.a = 1;
+	}
+	
+	test();
+	alert(a); */
+	function test(){
+		this.a=1;
+		var b = 123;
+		
+		this.getB = function(){
+			return b;
+		}
+	}
+	var $t = new test();
+	
+</script>
+</body>
+</html>

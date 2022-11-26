@@ -5,13 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
-<script>
-	/*
-	javascript data type : number, string, boolean, object, function
-	*/
-	
-</script>
+나는 유저리스트입니다.
 </body>
 </html>
